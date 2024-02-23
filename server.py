@@ -1,5 +1,4 @@
 import streamlit as st
-from StyleTemplate import css, bot_template, user_template
 import requests
 import re
     
