@@ -30,7 +30,6 @@ def show_negative_case_toast():
 
 def main():
     st.set_page_config("Ask me any thing")
-    st.write(css, unsafe_allow_html=True)
     st.header("CIBC Bot 😊")
         
     if "conservation" not in st.session_state:
