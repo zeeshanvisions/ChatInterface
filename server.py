@@ -58,7 +58,7 @@ Concerns: Worried about hidden fees, accessibility of funds internationally, and
     if prompt := st.chat_input():
         st.session_state.messages.append({"role": "user", "content": prompt})
         st.chat_message("user").write(prompt)
-        response = requests.post('http://localhost:5003/question', json={'question': str(prompt)}, headers={'Content-Type': 'application/json'})
+        response = requests.post('https://f778-202-77-138-194.ngrok-free.app/question', json={'question': str(prompt)}, headers={'Content-Type': 'application/json'})
         json = response.json()
         last_answer = json["last_answer"]
         # last_answer = get_encoded_url_string(stringWithUrl=last_answer)
