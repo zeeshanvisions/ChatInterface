@@ -33,7 +33,7 @@ def main():
     st.header("Simplii Bot 🤖")
         
     if "conservation" not in st.session_state:
-        st.session_state.conservation = list(
+        st.session_state.conservation = list()
     
     if "messages" not in st.session_state:
         st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
