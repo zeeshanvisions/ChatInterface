@@ -30,24 +30,10 @@ def show_negative_case_toast():
 
 def main():
     st.set_page_config("Ask me any thing")
-    st.header("CIBC Bot 😊")
+    st.header("Simplii Bot 🤖")
         
     if "conservation" not in st.session_state:
-        st.session_state.conservation = list()
-    
-    # Implementing the side bar
-    with st.sidebar:
-        st.subheader("Persona")
-        st.divider()
-        st.write("""Mid-30s, works in a multinational corporation with frequent travel across Europe and Asia. 
-
-Financial Savvy: Moderate to high, comfortable with online banking and digital financial tools. 
-
-Goals: Looking to save and manage money in multiple currencies due to frequent travel and international financial commitments. 
-
-Interests: Interested in efficient money management, low fees, and competitive exchange rates for savings and transfers. 
-
-Concerns: Worried about hidden fees, accessibility of funds internationally, and getting the best exchange rates. """)
+        st.session_state.conservation = list(
     
     if "messages" not in st.session_state:
         st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
