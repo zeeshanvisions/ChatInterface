@@ -30,7 +30,7 @@ def show_negative_case_toast():
 
 def main():
     st.set_page_config("Ask me any thing")
-    st.header("Simplii 🤖")
+    st.header("BMO 🤖")
         
     if "conservation" not in st.session_state:
         st.session_state.conservation = list()
@@ -44,7 +44,7 @@ def main():
     if prompt := st.chat_input():
         st.session_state.messages.append({"role": "user", "content": prompt})
         st.chat_message("user").write(prompt)
-        response = requests.post('https://b90f-119-73-117-54.ngrok-free.app/question', json={'question': str(prompt)}, headers={'Content-Type': 'application/json'})
+        response = requests.post('https://0465-119-73-117-105.ngrok-free.app/question', json={'question': str(prompt)}, headers={'Content-Type': 'application/json'})
         json = response.json()
         last_answer = json["last_answer"]
         # last_answer = get_encoded_url_string(stringWithUrl=last_answer)
