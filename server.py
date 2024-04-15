@@ -30,7 +30,7 @@ def show_negative_case_toast():
 
 def main():
     st.set_page_config("Ask me any thing")
-    st.header("Simplii 🤖")
+    st.header("KMC 🤖")
         
     if "conservation" not in st.session_state:
         st.session_state.conservation = list()
