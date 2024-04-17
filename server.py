@@ -30,7 +30,7 @@ def show_negative_case_toast():
 
 def main():
     st.set_page_config("Ask me any thing")
-    st.header("KMC 🤖")
+    st.header("KMS 🤖")
         
     if "conservation" not in st.session_state:
         st.session_state.conservation = list()
@@ -44,30 +44,18 @@ def main():
     if prompt := st.chat_input():
         st.session_state.messages.append({"role": "user", "content": prompt})
         st.chat_message("user").write(prompt)
-        response = requests.post(' https://fed9-72-255-40-160.ngrok-free.app/question', json={'question': str(prompt)}, headers={'Content-Type': 'application/json'})
-        json = response.json()
-        last_answer = json["last_answer"]
-        # last_answer = get_encoded_url_string(stringWithUrl=last_answer)
-        st.session_state.messages.append({"role": "assistant", "content": last_answer})
-        st.chat_message("assistant").write(last_answer)
-        
-        
-    # input = st.text_input("Ask me anything")
-    # if st.button("Send"):
-    #     response = requests.post('http://localhost:5003/question', json={'question': str(input)}, headers={'Content-Type': 'application/json'})
-    #     json = response.json()
-    #     last_question = json["last_question"]
-    #     last_answer = json["last_answer"]
-    #     is_negative_case = json["is_negative_case"]
-    #     last_answer = get_encoded_url_string(stringWithUrl=last_answer)
-    #     st.session_state.conservation.insert(0, {"question": last_question, "answer": last_answer})
-    #     if is_negative_case:
-    #         show_negative_case_toast()
-    #     for item in st.session_state.conservation:
-    #         st.write(bot_template.replace("{{MSG}}", item["answer"]), unsafe_allow_html=True)
-    #         st.write(user_template.replace("{{MSG}}", item["question"]), unsafe_allow_html=True)
-        
-            
+        try:
+            response = requests.post(' https://fed9-72-255-40-160.ngrok-free.app/question', json={'question': str(prompt)}, headers={'Content-Type': 'application/json'})
+            json = response.json()
+            last_answer = json["last_answer"]
+            # last_answer = get_encoded_url_string(stringWithUrl=last_answer)
+            st.session_state.messages.append({"role": "assistant", "content": last_answer})
+            st.chat_message("assistant").write(last_answer)
+        except:
+            last_answer = "Server is offline"
+            # last_answer = get_encoded_url_string(stringWithUrl=last_answer)
+            st.session_state.messages.append({"role": "assistant", "content": last_answer})
+            st.chat_message("assistant").write(last_answer)
                 
 if __name__ == '__main__':
     main()
